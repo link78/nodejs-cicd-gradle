@@ -1,4 +1,4 @@
 # node 
+Simple Hello World that listens on localhost:8000.
 
-Simple Hello World that listens on localhost:8080.
-Good
+Nodejs application using gradle for CICD pipeline
