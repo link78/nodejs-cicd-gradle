@@ -9,6 +9,7 @@ node {
 
   stage('starting app') {
 	sh 'npm --version'
+        sh 'node --version'
 }
   
  
