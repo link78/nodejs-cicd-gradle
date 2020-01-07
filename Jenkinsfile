@@ -13,7 +13,7 @@ node {
         sh 'node --version'
 }
    stage('Building Docker Image') {
-	sh 'docker build -t $DOCKER_HUB_USR/nodejs-gradle'
+	sh 'docker build -t $DOCKER_HUB_USR/nodejs-gradle .'
 	sh 'docker login -u $DOCKER_HUB_USR -p $DOCKER_HUB_PASSWD'
 	sh 'docker pussh $DOCKER_HUB_USR/nodejs-gradle'
 } 
