@@ -28,7 +28,7 @@ node {
   stage('Deploy Code to K8S') {
 
 	input 'Deploy to Production'
-	milestone(1)
+
 	kubernetesDeploy(
 	  kubeconfigId: 'kube_id',
 	  configs: 'nodejs-deploy.yml',
