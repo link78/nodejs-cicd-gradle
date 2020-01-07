@@ -5,6 +5,7 @@ node {
 }
   stage('Building app') {
 	sh './gradlew build'
+         archiveArtifacts artifacts: 'dist/nodejs.zp'
 } 
 
   stage('starting app') {
