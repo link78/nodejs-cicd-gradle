@@ -5,7 +5,7 @@ node {
 }
   stage('Building app') {
 	sh './gradlew build'
-         archiveArtifacts artifacts: 'dist/nodejs.zp'
+         archiveArtifacts artifacts: 'dist/nodejs.zip'
 } 
 
   stage('starting app') {
@@ -18,7 +18,7 @@ node {
 	sh 'docker pussh $DOCKER_HUB_USR/nodejs-gradle'
 } 
   stage('Test Docker Imgae') {
-	sh 'docker run --name gradle -d -p 8000:8000 $DOCKER_HUB_USR/gradle'
+	sh 'docker run --name=gradle -d -p 8000:8000 $DOCKER_HUB_USR/gradle'
 }
  
 } // end
