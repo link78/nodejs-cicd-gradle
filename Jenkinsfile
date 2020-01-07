@@ -20,5 +20,17 @@ node {
   stage('Test Docker Imgae') {
 	sh 'docker run --name=gradle -d -p 8000:8000 $DOCKER_HUB_USR/nodejs-gradle'
 }
+
+  stage('Deploy Code to K8S') {
+	steps {
+	input 'Deploy to Production'
+	milestone(1)
+	kubernetesDeploy(
+	  kubeconfigId: 'kube_id',
+	  configs: 'nodejs-deploy.yml',
+	  enableConfigSubstitution: true
+	)
+}
+}
  
 } // end
