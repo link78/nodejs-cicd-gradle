@@ -26,7 +26,7 @@ node {
 }
 
   stage('Deploy Code to K8S') {
-	steps {
+
 	input 'Deploy to Production'
 	milestone(1)
 	kubernetesDeploy(
@@ -34,7 +34,7 @@ node {
 	  configs: 'nodejs-deploy.yml',
 	  enableConfigSubstitution: true
 	)
-}
+
 }
  
 } // end
