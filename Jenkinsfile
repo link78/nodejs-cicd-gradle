@@ -28,9 +28,7 @@ node {
 
   stage('Deploy Code to Canary') {
 
-        environment {
-	  CANARY-REPLICAS = 1
-}
+         $CANARY-REPLICAS
 
         kubernetesDeploy(
           kubeconfigId: 'kube_id',
@@ -45,10 +43,7 @@ node {
 
 	input 'Deploy to Production'
 
-	environment {
-          CANARY-REPLICAS = 0
-}
-
+	$CANARY-REPLICAS = 0
         kubernetesDeploy(
           kubeconfigId: 'kube_id',
           configs: 'nodejs-deploy-canary.yml',
