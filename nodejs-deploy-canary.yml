@@ -14,7 +14,7 @@ spec:
 ---
 
 apiVersion: apps/v1
-kind: Deploy-canary
+kind: Deployment
 metadata:
   name: nodejs-app-deploy-canary
   labels:
