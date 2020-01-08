@@ -20,7 +20,7 @@ metadata:
   labels:
     app: nodejs-app-canary
 spec:
-  replicas: $CANARY-REPLICAS
+  replicas: $CANARY_REPLICAS
   selector:
     matchLabels:
       app: nodejs-app-canary
