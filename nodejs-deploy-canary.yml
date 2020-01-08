@@ -28,7 +28,7 @@ spec:
   template:
     metadata:
       labels:
-        app: nodejs-app
+        app: nodejs-app-canary
         track: canary
     spec:
       containers:
