@@ -33,16 +33,7 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: $DOCKER_HUB_USR/nodejs-gradle
+        image: $DOCKER_HUB_USR/nodejs-gradle:latest
         ports:
         - containerPort: 8000
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 8000
-          initialDelaySeconds: 15
-          timeoutSeconds: 1
-          periodSeconds: 10
-        resources:
-          requests:
-            cpu: 200m
+        
