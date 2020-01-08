@@ -1,0 +1,39 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nodejs-svc-canary
+spec:
+  type: NodePort
+  selector:
+    app: nodejs-app-canary
+  ports:
+  - protocol: TCP
+    port: 8000
+    nodePort: 32081
+
+---
+
+apiVersion: apps/v1
+kind: Deploy-canary
+metadata:
+  name: nodejs-app-deploy-canary
+  labels:
+    app: nodejs-app-canary
+spec:
+  replicas: $CANARY-REPLICAS
+  selector:
+    matchLabels:
+      app: nodejs-app-canary
+      track: canary
+  template:
+    metadata:
+      labels:
+        app: nodejs-app
+        track: canary
+    spec:
+      containers:
+      - name: nodejs-app
+        image: $DOCKER_HUB_USR/nodejs-gradle:latest
+        ports:
+        - containerPort: 8000
+        
