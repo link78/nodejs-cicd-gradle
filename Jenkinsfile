@@ -17,9 +17,9 @@ node {
 	sh 'docker login -u $DOCKER_HUB_USR -p $DOCKER_HUB_PASSWD'
 	sh 'docker pussh $DOCKER_HUB_USR/nodejs-gradle'
 }
-//  stage('Remove old image') {
-	//sh 'docker rm -f gradle'
-//}
+  stage('Remove old image') {
+	sh 'docker rm -f gradle'
+}
  
   stage('Test Docker Imgae') {
 	sh 'docker run --name=gradle -d -p 8000:8000 $DOCKER_HUB_USR/nodejs-gradle'
