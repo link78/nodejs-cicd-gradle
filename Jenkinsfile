@@ -29,7 +29,7 @@ node {
   stage('Deploy Code to Canary') {
 
         environment {
-	  CANARY-REPLICAS=1
+	  CANARY-REPLICAS = 1
 }
 
         kubernetesDeploy(
@@ -46,7 +46,7 @@ node {
 	input 'Deploy to Production'
 
 	environment {
-          CANARY-REPLICAS=0
+          CANARY-REPLICAS = 0
 }
 
         kubernetesDeploy(
