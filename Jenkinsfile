@@ -42,7 +42,7 @@ node {
 
   stage('Deploy Code to K8S') {
 
-	input 'Deploy to Production'
+	//input 'Deploy to Production'
 	environment {
 	CANARY_REPLICAS = 0
 }
