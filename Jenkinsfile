@@ -13,19 +13,19 @@ node {
         sh 'node --version'
 }
    stage('Building Docker Image') {
-	sh 'docker build -t $DOCKER_HUB_USR/nodejs-gradle .'
-	sh 'docker login -u $DOCKER_HUB_USR -p $DOCKER_HUB_PASSWD'
-	sh 'docker push $DOCKER_HUB_USR/nodejs-gradle'
+	sh 'docker build -t nodejs-gradle .'
+	//sh 'docker login -u $DOCKER_HUB_USR -p $DOCKER_HUB_PASSWD'
+	//sh 'docker push $DOCKER_HUB_USR/nodejs-gradle'
 }
   stage('Remove old image') {
-	sh 'docker rm -f gradle'
+	//sh 'docker rm -f gradle'
 }
  
   stage('Test Docker Imgae') {
-	sh 'docker run --name=gradle -d -p 8000:8000 $DOCKER_HUB_USR/nodejs-gradle'
+	sh 'docker run --name=gradle -d -p 9000:9000 nodejs-gradle'
 }  
 
-
+/**
   stage('Deploy Code to Canary') {
 	
 	environment {
@@ -62,4 +62,4 @@ node {
 
 }
  
-} // end
+} // end  **/
